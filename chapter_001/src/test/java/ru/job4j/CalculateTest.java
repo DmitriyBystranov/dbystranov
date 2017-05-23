@@ -8,21 +8,21 @@ import static org.junit.Assert.assertThat;
 
 /**
 	Test.
-	
+
 	@author DmitriyBystranov (mailto: dbystranov@mail.ru)
 	@version $id$
 	@since 22.05.2017
 */
-public class CalculateTest{
+public class CalculateTest {
 	/**
-		Test add.		
+		Test add.
 	*/
 	@Test
-	
-	public void whenAddOneToOneThenTwo(){
+
+	public void whenAddOneToOneThenTwo() {
 		ByteArrayOutputStream out  = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(out));
 		Calculate.main(null);
-		assertThat(out.toString(),is(String.format("Hello world!", System.getProperty("Line.separator"))));
+		assertThat(out.toString(), is(String.format("Hello world!", System.getProperty("Line.separator"))));
 	}
 }
