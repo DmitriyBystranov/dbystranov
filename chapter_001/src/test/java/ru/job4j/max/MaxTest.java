@@ -20,8 +20,8 @@ public class MaxTest {
 
     @Test
     public void whenAddOnePlusOneThenTwo() {
-        MaxTest maxTest = new MaxTest();
-        int result = maxTest.max(1, 2);
+        Max maxTest = new Max();
+        int result = maxTest.max1(1, 2);
         int expected = 2;
         assertThat(result, is(expected));
 	}

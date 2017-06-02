@@ -8,9 +8,7 @@ package ru.job4j.condition;
 public class Triangle {
 /** * Поля - 3 точки, по которым стороится треугольник. */
 	private Point a;
-/** * Точка 2. */
 	private Point b;
-/** * Точка 3. */
 	private Point c;
 /**
 	* Конструктор, приравнивающий каждый параметр к полю.
@@ -29,10 +27,10 @@ public class Triangle {
 	* @return Возвращает площадь треугольника
 */
 	public double area() {
-		ab = Math.sqrt(Math.sqr((a.getX() - b.getX())) + Math.sqr((a.getY() - b.getY())));
-		bc = Math.sqrt(Math.sqr((b.getX() - c.getX())) + Math.sqr((b.getY() - c.getY())));
-		ac = Math.sqrt(Math.sqr((a.getX() - c.getX())) + Math.sqr((a.getY() - c.getY())));
-		p = 0.5 * (ab + bc + ac);
+		double ab = Math.sqrt(Math.pow(a.getX() - b.getX(), 2) + Math.pow(a.getY() - b.getY(), 2));
+		double bc = Math.sqrt(Math.pow(b.getX() - c.getX(), 2) + Math.pow(b.getY() - c.getY(), 2));
+		double ac = Math.sqrt(Math.pow(a.getX() - c.getX(), 2) + Math.pow(a.getY() - c.getY(), 2));
+		double p = 0.5 * (ab + bc + ac);
 		return Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
 	}
 }

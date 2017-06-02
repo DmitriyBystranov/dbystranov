@@ -19,8 +19,8 @@ public class PointTest {
 	*/
 	@Test
 	public void pointOnTheFunction() {
-		PointTest pointTest = new PointTest();
-		boolean result  = pointTest.is(4, 2);
+		Point pointTest = new Point(4, 10);
+		boolean result  = pointTest.is(2, 2);
 		boolean expected = true;
 		assertThat(result, is(expected));
 	}

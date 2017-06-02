@@ -3,7 +3,7 @@ package ru.job4j.condition;
 import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
-import static org.hamcrest.number.IsClouseTo.closeTo;
+import static org.hamcrest.number.IsCloseTo.closeTo;
 
 /**
 	* Class TrienglTest (Решение задачи 3.3).
@@ -11,7 +11,7 @@ import static org.hamcrest.number.IsClouseTo.closeTo;
 	* @since 30.05.2017
 	* @version 1.0
 */
-public class TriagleTest {
+public class TriangleTest {
 /**
 	* Метод.
 	* @param a - точка треугольника
@@ -24,7 +24,7 @@ public class TriagleTest {
 	 Point c = new Point(2,0);
 		Triangle treangl = new Triangle(a,b,c);
 			double result = treangl.area();
-		double expected = 2D;
-		assertThat(result, is(expected));
+			double expected = 2D;
+		assertThat(result, closeTo(expected, 0.01));
 	}
 }
