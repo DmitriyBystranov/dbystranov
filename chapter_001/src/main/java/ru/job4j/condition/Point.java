@@ -23,7 +23,7 @@ public class Point {
 */
 
 	public boolean is(int k, int j) {
-		return getY() == k * getX() + j;
+		return this.y == k * this.x + j;
 	}
 
 /**

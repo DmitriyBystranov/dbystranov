@@ -22,15 +22,21 @@ public class Triangle {
 		this.c = c;
 	}
 /**
+	* Метод, ведущий подсчёт стороны треугольника.
+	* @param - первая точка
+	* @param - вторая точка
+*/	
+	public double sideTriangle (Point side1, Point side2) {
+		return Math.sqrt(Math.pow(side1.getX() - side2.getX(), 2) + Math.pow(side1.getY() - side2.getY(), 2));
+	}
+	
+/**
 	* Метод area.
 	* В нём ведётся подсчёт площади треугольника по 3-м точкам.
 	* @return Возвращает площадь треугольника
 */
 	public double area() {
-		double ab = Math.sqrt(Math.pow(a.getX() - b.getX(), 2) + Math.pow(a.getY() - b.getY(), 2));
-		double bc = Math.sqrt(Math.pow(b.getX() - c.getX(), 2) + Math.pow(b.getY() - c.getY(), 2));
-		double ac = Math.sqrt(Math.pow(a.getX() - c.getX(), 2) + Math.pow(a.getY() - c.getY(), 2));
-		double p = 0.5 * (ab + bc + ac);
-		return Math.sqrt(p * (p - ab) * (p - bc) * (p - ac));
+		double p = 0.5 * (sideTriangle(a, b) + sideTriangle(b, c) + sideTriangle(a, c));
+		return Math.sqrt(p * (p - sideTriangle(a, b)) * (p - sideTriangle(b, c)) * (p - sideTriangle(a, c)));
 	}
 }

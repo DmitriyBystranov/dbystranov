@@ -21,8 +21,6 @@ public class Max {
 	
 	public int max2(int first, int second, int thirt) {
 		int result = max1(first, second);
-		max1(result,thirt);
-		int value = first > second ? first : second;
-		return value;
+		return max1(result,thirt);
 	}
 }
