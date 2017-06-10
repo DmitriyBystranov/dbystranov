@@ -20,7 +20,6 @@ public class Max {
 	}
 	
 	public int max2(int first, int second, int thirt) {
-		int result = max1(first, second);
 		return max1(max1(first, second),thirt);
 	}
 }
