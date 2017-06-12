@@ -1,4 +1,4 @@
-package ru.job4l.loop;
+package ru.job4j.loop;
 /**
 	* Class Paint (Решение задачи 4.4).
 	* @author Bystranov
@@ -26,5 +26,6 @@ public class Paint {
 			}
 			piramida.append(newLine);
 		}
+		return piramida.toString();
 	}
 }
