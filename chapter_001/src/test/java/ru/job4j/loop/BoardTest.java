@@ -21,7 +21,7 @@ public class BoardTest {
 		Board board = new Board();
 		String result = board.paint(5, 4);
 		final String line = System.getProperty("line.separator");
-		String expected = String.format("X X X%s X X %sX X X%s X X ", line, line,line);
+		String expected = String.format("X X %1$s X X%1$sX X %1$s X X%1$sX X %1$s", line);
 		assertThat(result, is(expected));
 	}
 }
