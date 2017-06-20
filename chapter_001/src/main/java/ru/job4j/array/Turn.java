@@ -12,8 +12,7 @@ public class Turn {
 */	
 	public void back(int[] mass) {
 		int temp;
-		String newLine = System.getProperty("line.separator");
-		
+
 		for(int i = 0; i < mass.length / 2; i++) {
 			
 			temp = mass[i];
