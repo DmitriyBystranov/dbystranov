@@ -41,7 +41,7 @@
 				<version>3.3</version>
 				<configuration>
 					<compilerVersion>1.8</compilerVersion>
-				<configuration>
+				</configuration>
 				<executions>
 					<execution>
 						<id>verify</id>
