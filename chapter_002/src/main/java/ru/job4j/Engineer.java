@@ -1,17 +1,17 @@
-package jun;
+package ru.job4j;
 
 public class Engineer extends Profession {
 	
-	Formula Cashi;
-	Formula zaconOma;
-	Formula laplasa;
+	String formulaCashi;
+	String formulaZaconOma;
+	String formulaLaplasa;
 	
 	
-	public void create(Engin motor) {
+	public void create() {
 		
 	}
 	
-	public void calculations(Equation equation) {
+	public void calculations() {
 		
 	}
 }

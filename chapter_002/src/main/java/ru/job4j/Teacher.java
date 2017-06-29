@@ -1,4 +1,4 @@
-package jun;
+package ru.job4j;
 
 public class Teacher extends Profession {
 	
@@ -6,20 +6,16 @@ public class Teacher extends Profession {
 	String schoolSubject;
 	int numberClass;
 	
-	public practicLesson(String attributes) {
+	public void practicLesson(String attributes) {
 		
 	}
 	
-	public lecture(String nameLesson) {
-		
-	}
-	
-	public monitiringWork(assignment) {
+	public void lecture(String nameLesson) {
 		
 	}
 	
 	public int checkingHomework(String surname) {
-		int grade;
+		int grade = 5;
 		return grade;
 	}
 }

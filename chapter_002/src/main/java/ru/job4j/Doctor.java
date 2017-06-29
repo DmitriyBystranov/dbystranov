@@ -1,31 +1,22 @@
-package jun;
+package ru.job4j;
 
 public class Doctor extends Profession {
 	
-	private String specialty;
+	private String[] specialty = {"Stomatolog, LOR, Hirurg, Med-brother"};
 	private String[] knowBolezney = {"Gripp", "Halera", "Yazva"};
-	
-	public String setSpecialty(String specialty) {
-		this.specialty = specialty;
-	}
-	
-	public String getSpecialty() {
+	private String[] simptoms = {"Kashel", "Nasmork", "Golovnaya bol"};
+	Pacient misha = new Pacient("Mihail", 38);	
+	public String getSpecialty(int i) {
+		String specialty = this.specialty[i];
 		return specialty;
 	}
 	
-	public String getKnowBolezney() {
+	public String getKnowBolezney(int i) {
+		String knowBolezney = this.knowBolezney[i];
 		return knowBolezney;
 	}
 	
-	public void inspection(){
-		
-	}
-	
-	public Diagnoz diagnoz(Simotoms simptoms) {
-		return diagnoz;
-	}
-	
-	public String giveRecept(Pacient pacient) {
-		return recept;
+	public void inspection(Pacient pacient) {
+		System.out.println(getSpecialty(1) + " inspection " + misha.getName());
 	}
 }
