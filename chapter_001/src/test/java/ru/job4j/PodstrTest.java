@@ -9,9 +9,9 @@ public class PodstrTest {
 */
 	@Test
 	public void whetherStringIsSubstring() {
-		String originString = "Madagaskar";
+		String originString = "Madagaskar"; // Передаём аргумент в параметры.
 		String testString = "aga";
-		boolean verify = true;
-		assertThat(Podstr.contains(originString, testString), is(verify));
+		boolean verify = true; // Объявляем "ожидаемую" переменную.
+		assertThat(Podstr.contains(originString, testString), is(verify)); // Сравниваем ожидаемую переменную с полученным результатом программы.
 	}
 }
