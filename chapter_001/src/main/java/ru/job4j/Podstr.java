@@ -19,6 +19,9 @@ public class Podstr {
 		String[] massCharacterOfOriginString = originString.split(""); // Метод split разбивает строку на массив строк, в каждой ячейке которого одна буква слова.
 		String[] massCharacterOfTestString = testString.split("");
 		for(int i = 0; i < massCharacterOfOriginString.length - massCharacterOfTestString.length + 1; i++) { // Ограничение идёт: Длинна строки - длинна подстроки + 1 т.к. бессмысленно сравниварть, если в строке остаётся меньше символов чем имеет подстрока.
+			if(!massCharacterOfOriginString[i].equals(massCharacterOfTestString[0])) { // если первые символы не сопадают, то нет смысла делать проверку дальше.
+				continue;
+			}
 			for(int j = 0; j < massCharacterOfTestString.length; j++) {
 				if(!massCharacterOfOriginString[j + i].equals(massCharacterOfTestString[j])) {
 					break;
