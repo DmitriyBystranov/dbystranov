@@ -30,7 +30,7 @@ public class Tracker {
 	public void delite(Item item) {
 		for(i = 0; i != position; i++) { // Пробегаем по всем заявкам
 			if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
-				for(j = i; j != position; j++) { // Делаем алгоритм перенося найденую заявку в конец массива.
+				for(j = i; j != position; j++) { // Делаем алгоритм, перенося найденую заявку в конец массива.
 					String temp = null;
 					temp = items[j];
 					items[j] = items[j + 1];
@@ -76,7 +76,7 @@ public class Tracker {
 	* @param key - В этот параметр вписываем заявку, которую хотим найти.
 	* @return result - Возвращает найденую заявку.
 */
-	public Item findById(String id) {
+	public Item[] findById(String id) {
 		Item result = null; // Создаём копию найденой заявки.
 		for(Item item : items) {  // Пробегаем по всему реестру.
 			if(itme != null && item.getId().equals(id)) {
