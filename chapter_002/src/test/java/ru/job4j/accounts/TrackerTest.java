@@ -24,25 +24,35 @@ public class TrackerTest {
 	}
 	
 	@Test
-	public void whenItemDELETEDToTheRegistry() {
-		Item item = new Item();
+	public void whenItemDELETEDToTheRegistry();
 		Tracker tracker = new Tracker();
-		 expected = 
-		result = 
+		Item item = new Item();
+		tracker.add(item);
+		tracker.delete(item);
+		expected = tracker.findById(item.getId());
+		result = null;
+		assertThat(result, is(expected));
 	}
 	
 	@Test
 	public void whenYouWantWotchingALLItems() {
-		
+		Item[] item = new Item[] {new Item(), new Item(), new Item(), new Item()};
+		Tracker tracker = new Tracker();
+		expected = tracker.getAll();
+		result = item;
+		assertThat(result, is(expected));
 	}
 	
 	@Test
 	public void whenYouNeedFindItemByNAME() {
-		
+		Tracker tracker = new Tracker();
+		Item[] item = new Item[] {new Item(), new Item(), new Item(), new Item()};
+		expected = tracker.findByName();
 	}
 	
 	@Test
 	public void whenYouNeedFindItemByID() {
+		Random RN = new Random();
 		Tracker tracker = new Tracker();
 		String id = String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
 		expected = tracker.findById(id);

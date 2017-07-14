@@ -9,6 +9,7 @@ public class Tracker {
 	
 	private Item[] items = new Item[100]; // Массив всех заявок.
 	private byte position = 0; // Номер заявки (Каким номером по счёту идёт заявка).
+	private final Random RN = new Random();
 /**
 	* Method add Добавляет зайвку в реестр (массив) заявок.
 	* @param item - В этот параметр вписываем созданную заявку для внесеня её в реестр.
@@ -27,7 +28,7 @@ public class Tracker {
 	* Method add Удаляет заявку из реестра.
 	* @param item - В этот параметр вписываем заявку, которую хотим удалить.
 */	
-	public void delite(Item item) {
+	public void delete(Item item) {
 		for(i = 0; i != position; i++) { // Пробегаем по всем заявкам
 			if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
 				for(j = i; j != position; j++) { // Делаем алгоритм, перенося найденую заявку в конец массива.
@@ -49,9 +50,9 @@ public class Tracker {
 	public Item[] getAll() {
 		Item[] copyArray = new Item[position]; // Создаём копию массива заявок.
 		for(int i = 0; i != position; i++) { // Закидываем туда все ячейки.
-			if(items[i].equls(null)) { // Кроме пустых.
+			/* if(items[i].equals(null)) { // Кроме пустых.
 				continue;
-			}
+			} */
 			copyArray[i] = this.items[i];
 		}
 		return copyArray; // Возвращаем заполненый массив всеми существующими заявками.
@@ -76,7 +77,7 @@ public class Tracker {
 	* @param key - В этот параметр вписываем заявку, которую хотим найти.
 	* @return result - Возвращает найденую заявку.
 */
-	public Item[] findById(String id) {
+	public Item findById(String id) {
 		Item result = null; // Создаём копию найденой заявки.
 		for(Item item : items) {  // Пробегаем по всему реестру.
 			if(itme != null && item.getId().equals(id)) {
