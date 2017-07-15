@@ -24,37 +24,60 @@ public class TrackerTest {
 	}
 	
 	@Test
-	public void whenItemDELETEDToTheRegistry();
+	public void whenItemDELETEDToTheRegistry() {
 		Tracker tracker = new Tracker();
 		Item item = new Item();
 		tracker.add(item);
 		tracker.delete(item);
-		expected = tracker.findById(item.getId());
-		result = null;
+		Item expected = tracker.findById(item.getId());
+		Item result = null;
 		assertThat(result, is(expected));
 	}
 	
 	@Test
 	public void whenYouWantWotchingALLItems() {
-		Item[] item = new Item[] {new Item(), new Item(), new Item(), new Item()};
 		Tracker tracker = new Tracker();
-		expected = tracker.getAll();
-		result = item;
+		Item gaz = new Item();
+		Item light = new Item();
+		Item water = new Item();
+		Item[] item = {gaz, light, water};
+		tracker.add(gaz);
+		tracker.add(light);
+		tracker.add(water);
+		Item[] expected = tracker.getAll();
+		Item[] result = item;
 		assertThat(result, is(expected));
 	}
 	
 	@Test
 	public void whenYouNeedFindItemByNAME() {
 		Tracker tracker = new Tracker();
-		Item[] item = new Item[] {new Item(), new Item(), new Item(), new Item()};
-		expected = tracker.findByName();
+		Item gaz = new Item();
+		Item light = new Item();
+		Item water = new Item();
+		gaz.setName("GAZ");
+		light.setName("light");
+		water.setName("water");
+		tracker.add(gaz);
+		tracker.add(light);
+		tracker.add(water);
+		//Item[] item = new Item[] {new Item(), new Item(), new Item(), new Item()};
+		Item expected = tracker.findByName("light");
+		Item result = light;
+		assertThat(result, is(expected));
 	}
 	
-	@Test
+	@Test	
 	public void whenYouNeedFindItemByID() {
-		Random RN = new Random();
 		Tracker tracker = new Tracker();
-		String id = String.valueOf(System.currentTimeMillis() + RN.nextInt(100));
-		expected = tracker.findById(id);
+		Item gaz = new Item();
+		Item light = new Item();
+		Item water = new Item();
+		tracker.add(gaz);
+		tracker.add(light);
+		tracker.add(water);
+		Item expected = tracker.findById(gaz.getId());
+		Item result = gaz;
+		assertThat(result, is(expected));
 	}
 }

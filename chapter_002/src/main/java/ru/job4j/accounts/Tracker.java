@@ -1,4 +1,6 @@
 package ru.job4j.accounts;
+
+import java.util.Random;
 /**
 	* Class ArrayDuplicate (Решение задачи Инкапсуляция).
 	* @author Bystranov
@@ -29,10 +31,10 @@ public class Tracker {
 	* @param item - В этот параметр вписываем заявку, которую хотим удалить.
 */	
 	public void delete(Item item) {
-		for(i = 0; i != position; i++) { // Пробегаем по всем заявкам
+		for(int i = 0; i != position; i++) { // Пробегаем по всем заявкам
 			if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
-				for(j = i; j != position; j++) { // Делаем алгоритм, перенося найденую заявку в конец массива.
-					String temp = null;
+				for(int j = i; j != position; j++) { // Делаем алгоритм, перенося найденую заявку в конец массива.
+					Item temp = null;
 					temp = items[j];
 					items[j] = items[j + 1];
 					items[j + 1] = temp;
@@ -62,7 +64,7 @@ public class Tracker {
 	* @param key - В этот параметр вписываем заявку, которую хотим найти.
 	* @return result - Возвращает найденую заявку.
 */	
-	public item[] findByName(String key) {
+	public Item findByName(String key) {
 		Item result = null;
 		for(Item item : items) {
 			if(item.getName().equals(key)) {
@@ -80,8 +82,8 @@ public class Tracker {
 	public Item findById(String id) {
 		Item result = null; // Создаём копию найденой заявки.
 		for(Item item : items) {  // Пробегаем по всему реестру.
-			if(itme != null && item.getId().equals(id)) {
-				result = itme;
+			if(item != null && item.getId().equals(id)) {
+				result = item;
 				break;
 			}
 		}

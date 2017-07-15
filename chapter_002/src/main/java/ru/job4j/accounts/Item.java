@@ -2,8 +2,8 @@ package ru.job4j.accounts;
 
 public class Item {
 	
-	private String id;
-	private String name;
+	private String id; // id заявки.
+	private String name; // Название заявки.
 	
 	public void setId(String id) {
 		this.id = id;

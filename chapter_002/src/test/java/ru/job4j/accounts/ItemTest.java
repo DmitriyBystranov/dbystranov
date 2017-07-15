@@ -23,6 +23,6 @@ public class ItemTest {
 		Item item = new Item();
 		String name = "Utilities";
 		item.setName(name);
-		assertThat(item.getName(), is(name))
+		assertThat(item.getName(), is(name));
 	}
 }
