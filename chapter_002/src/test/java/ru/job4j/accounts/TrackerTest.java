@@ -20,7 +20,13 @@ public class TrackerTest {
 	
 	@Test
 	public void whenItemUPDATEDToTheRegistry() {
-		
+		Item item = new Item();
+		Tracker tracker = new Tracker();
+		tracker.add(item);
+		item.setName("water");
+		tracker.update(item);
+		Item result = tracker.findById(item.getId());
+		assertThat(result.getName(), is("water"));
 	}
 	
 	@Test

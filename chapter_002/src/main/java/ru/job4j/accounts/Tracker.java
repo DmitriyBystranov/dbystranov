@@ -1,5 +1,4 @@
 package ru.job4j.accounts;
-
 import java.util.Random;
 /**
 	* Class ArrayDuplicate (Решение задачи Инкапсуляция).
@@ -22,9 +21,16 @@ public class Tracker {
 		this.items[position++] = item; // "Энной" ячейке массива присваиваем созданную заявку.
 		return item; // Возвращаем эту заявку.
 	}
-	
+/**
+	* Method add Удаляет заявку из реестра.
+	* @param item - В этот параметр вписываем заявку, которую хотим удалить.
+*/	
 	public void update(Item item) {
-		
+		for(int i = 0; i != position; i++) { // Пробегаем по всем заявкам
+			if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
+				items[i] = item; // Заменяем.
+			}
+		}
 	}
 /**
 	* Method add Удаляет заявку из реестра.
@@ -33,15 +39,8 @@ public class Tracker {
 	public void delete(Item item) {
 		for(int i = 0; i != position; i++) { // Пробегаем по всем заявкам
 			if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
-				for(int j = i; j != position; j++) { // Делаем алгоритм, перенося найденую заявку в конец массива.
-					Item temp = null;
-					temp = items[j];
-					items[j] = items[j + 1];
-					items[j + 1] = temp;
-					if(j + 1 == position) { // Если завка в последней ячейке массива,
-						items[j + 1] = null;  // То присваиваем ей "пустоту".
-					}
-				}
+				System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1); // Перекрываем заявку другими ячейками с правой стороны.
+				this.items[position] = null; // Последнюю заявку делаем "пустой".
 			}
 		}
 	}
@@ -52,9 +51,6 @@ public class Tracker {
 	public Item[] getAll() {
 		Item[] copyArray = new Item[position]; // Создаём копию массива заявок.
 		for(int i = 0; i != position; i++) { // Закидываем туда все ячейки.
-			/* if(items[i].equals(null)) { // Кроме пустых.
-				continue;
-			} */
 			copyArray[i] = this.items[i];
 		}
 		return copyArray; // Возвращаем заполненый массив всеми существующими заявками.
