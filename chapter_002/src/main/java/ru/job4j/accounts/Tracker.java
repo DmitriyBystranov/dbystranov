@@ -29,6 +29,7 @@ public class Tracker {
 		for(int i = 0; i != position; i++) { // Пробегаем по всем заявкам
 			if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
 				items[i] = item; // Заменяем.
+				break;
 			}
 		}
 	}
@@ -41,6 +42,8 @@ public class Tracker {
 			if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
 				System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1); // Перекрываем заявку другими ячейками с правой стороны.
 				this.items[position] = null; // Последнюю заявку делаем "пустой".
+				position--;
+				break;
 			}
 		}
 	}
