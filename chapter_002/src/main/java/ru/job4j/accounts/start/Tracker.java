@@ -1,4 +1,6 @@
-package ru.job4j.accounts;
+package ru.job4j.accounts.start;
+
+import models.Item;
 import java.util.Random;
 /**
 	* Class ArrayDuplicate (Решение задачи Инкапсуляция).
