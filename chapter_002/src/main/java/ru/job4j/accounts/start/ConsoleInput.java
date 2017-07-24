@@ -10,7 +10,7 @@ public class ConsoleInput implements InputInterface {
 	}
 
 	public int numberFunction() {
-		System.out.printf("\r\n%1$26s\r\n", "Select: ");
+		System.out.printf("\r\n%1$26s", "Select: ");
 		return scanner.nextInt();
 	}
 }

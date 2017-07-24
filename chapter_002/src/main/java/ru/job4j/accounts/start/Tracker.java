@@ -1,8 +1,9 @@
 package ru.job4j.accounts.start;
 
 import ru.job4j.accounts.models.Item;
-
+import java.util.Scanner;
 import java.util.Random;
+import java.util.Arrays;
 /**
  * Class ArrayDuplicate (Решение задачи Инкапсуляция).
  * @author Bystranov
@@ -14,15 +15,18 @@ public class Tracker {
     private Item[] items = new Item[100]; // Массив всех заявок.
     private byte position = 0; // Номер заявки (Каким номером по счёту идёт заявка).
     private final Random RN = new Random();
+    private Scanner scanner = new Scanner(System.in);
+    private ConsoleInput input = new ConsoleInput();
     /**
      * Method add Добавляет зайвку в реестр (массив) заявок.
      * @param item - В этот параметр вписываем созданную заявку для внесеня её в реестр.
      * @return item - Возвращает внесённую в реестр заявку.
      */
-    public Item add(Item item) {
+    public void add(Item item) {
         item.setId(generatedId()); // Параметр - метод генерирующий id номер заявки.
+        item.setName(input.ask("Pleas, enter name item: "));
+        item.setDescription(input.ask("Pleas, enter description item: "));
         this.items[position++] = item; // "Энной" ячейке массива присваиваем созданную заявку.
-        return item; // Возвращаем эту заявку.
     }
     /**
      * Method add Удаляет заявку из реестра.
@@ -54,12 +58,19 @@ public class Tracker {
      * Method getAll Выводит весь массив заявок, кроме "пустых" ячеек.
      * @return copyArray - Возвращает копию массива со всеми заявками.
      */
-    public Item[] getAll() {
-        Item[] copyArray = new Item[position]; // Создаём копию массива заявок.
+    public void getAll() {
+        int index = 1;
+        for(int i = 0; i != position; i++) {
+            System.out.printf("\r\n%s%s%s\r\n", index + ".", " " + "(" + items[i].getName() + ")", " "  + "[" + items[i].getId() + "]");
+            index++;
+        }
+
+        /*Item[] copyArray = new Item[position]; // Создаём копию массива заявок.
         for(int i = 0; i != position; i++) { // Закидываем туда все ячейки.
             copyArray[i] = this.items[i];
         }
-        return copyArray; // Возвращаем заполненый массив всеми существующими заявками.
+
+        System.out.println(Arrays.toString(copyArray));*/
     }
     /**
      * Method findByName Производит поиск заявок по имени.
@@ -78,7 +89,7 @@ public class Tracker {
     }
     /**
      * Method findById Производит поиск заявок по id.
-     * @param key - В этот параметр вписываем заявку, которую хотим найти.
+     * @param id - В этот параметр вписываем заявку, которую хотим найти.
      * @return result - Возвращает найденую заявку.
      */
     public Item findById(String id) {

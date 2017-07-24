@@ -13,11 +13,7 @@ public class TrackerTest {
 */
 	@Test
 	public void whenItemADDEDToTheRegistry() {
-		Item item = new Item();
-		Tracker tracker = new Tracker();
-		Item expected = tracker.add(item);
-		Item result = item;
-		assertThat(result, is(expected));
+
 	}
 	
 	@Test
@@ -44,17 +40,7 @@ public class TrackerTest {
 	
 	@Test
 	public void whenYouWantWotchingALLItems() {
-		Tracker tracker = new Tracker();
-		Item gaz = new Item();
-		Item light = new Item();
-		Item water = new Item();
-		Item[] item = {gaz, light, water};
-		tracker.add(gaz);
-		tracker.add(light);
-		tracker.add(water);
-		Item[] expected = tracker.getAll();
-		Item[] result = item;
-		assertThat(result, is(expected));
+
 	}
 	
 	@Test
