@@ -27,7 +27,10 @@ public class StartUI {
 					break;
 				case 1 : tracker.getAll();
 					break;
-				//case 3 : tracker.delete();
+				case 4 : System.out.println(tracker.findById(input.ask("Pleas, enter the item's ID: ")));
+					break;
+				case 5 :
+					System.out.println(tracker.findByName(input.ask("Pleas, enter the item's NAME: ")));
 				case 6 : exit = false;
 					break;
 			}

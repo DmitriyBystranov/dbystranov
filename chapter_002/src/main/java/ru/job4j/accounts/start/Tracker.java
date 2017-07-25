@@ -93,6 +93,7 @@ public class Tracker {
      * @return result - Возвращает найденую заявку.
      */
     public Item findById(String id) {
+
         Item result = null; // Создаём копию найденой заявки.
         for(Item item : items) {  // Пробегаем по всему реестру.
             if(item != null && item.getId().equals(id)) {
