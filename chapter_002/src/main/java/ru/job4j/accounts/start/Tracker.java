@@ -1,9 +1,7 @@
 package ru.job4j.accounts.start;
 
 import ru.job4j.accounts.models.Item;
-import java.util.Scanner;
 import java.util.Random;
-import java.util.Arrays;
 /**
  * Class ArrayDuplicate (Решение задачи Инкапсуляция).
  * @author Bystranov
@@ -15,62 +13,56 @@ public class Tracker {
     private Item[] items = new Item[100]; // Массив всех заявок.
     private byte position = 0; // Номер заявки (Каким номером по счёту идёт заявка).
     private final Random RN = new Random();
-    private Scanner scanner = new Scanner(System.in);
     private ConsoleInput input = new ConsoleInput();
     /**
      * Method add Добавляет зайвку в реестр (массив) заявок.
      * @param item - В этот параметр вписываем созданную заявку для внесеня её в реестр.
      * @return item - Возвращает внесённую в реестр заявку.
      */
-    public void add(Item item) {
+    public Item add(Item item) {
         item.setId(generatedId()); // Параметр - метод генерирующий id номер заявки.
-        item.setName(input.ask("Pleas, enter name item: "));
-        item.setDescription(input.ask("Pleas, enter description item: "));
         this.items[position++] = item; // "Энной" ячейке массива присваиваем созданную заявку.
+        return item;
     }
     /**
      * Method add Удаляет заявку из реестра.
-     * @param item - В этот параметр вписываем заявку, которую хотим удалить.
+     * @param item - В этот параметр вписываем имя заявки, которую хотим изменить.
      */
-    public void update(Item item) {
+    public void edit(Item item) {
         for(int i = 0; i != position; i++) { // Пробегаем по всем заявкам
             if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
-                items[i] = item; // Заменяем.
+                items[i] = item;
                 break;
             }
         }
     }
     /**
      * Method add Удаляет заявку из реестра.
-     * @param item - В этот параметр вписываем заявку, которую хотим удалить.
+     * @param id - В этот параметр вписываем id заявки, которую хотим удалить.
      */
-    public void delete(Item item) {
+    public String delete(String id) {
+        String name = null;
         for(int i = 0; i != position; i++) { // Пробегаем по всем заявкам
-            if(items[i].getId().equals(item.getId())) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
+            if(items[i].getId().equals(id)) { // Находим ту самую, сравнив id вписанной заявки с найденой в реестре.
+                name = items[i].getName();
                 System.arraycopy(this.items, i + 1, this.items, i, this.items.length - i - 1); // Перекрываем заявку другими ячейками с правой стороны.
                 this.items[position] = null; // Последнюю заявку делаем "пустой".
                 position--;
                 break;
             }
         }
+        return name;
     }
     /**
      * Method getAll Выводит весь массив заявок, кроме "пустых" ячеек.
      * @return copyArray - Возвращает копию массива со всеми заявками.
      */
-    public void getAll() {
-        int index = 1;
+    public Item[] getAll() {
+        Item[] arrayCopy = new Item[position];
         for(int i = 0; i != position; i++) {
-            System.out.printf("\r\n%s%s%s\r\n", index + ".", " " + "(" + items[i].getName() + ")", " "  + "[" + items[i].getId() + "]");
-            index++;
+            arrayCopy[i] = this.items[i];
         }
-
-        /*Item[] copyArray = new Item[position]; // Создаём копию массива заявок.
-        for(int i = 0; i != position; i++) { // Закидываем туда все ячейки.
-            copyArray[i] = this.items[i];
-        }
-
-        System.out.println(Arrays.toString(copyArray));*/
+        return arrayCopy;
     }
     /**
      * Method findByName Производит поиск заявок по имени.

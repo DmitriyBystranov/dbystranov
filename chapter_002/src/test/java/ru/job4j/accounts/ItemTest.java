@@ -26,4 +26,12 @@ public class ItemTest {
 		item.setName(name);
 		assertThat(item.getName(), is(name));
 	}
+
+	@Test
+	public void whenStartMethodSetDescription() {
+		Item item = new Item();
+		String description = "description";
+		item.setDescription(description);
+		assertThat(item.getDescription(), is(description));
+	}
 }

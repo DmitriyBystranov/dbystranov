@@ -13,34 +13,45 @@ public class TrackerTest {
 */
 	@Test
 	public void whenItemADDEDToTheRegistry() {
-
+		Item item = new Item();
+		Tracker tracker = new Tracker();
+		assertThat(item, is(tracker.add(item)));
 	}
-	
+
 	@Test
-	public void whenItemUPDATEDToTheRegistry() {
+	public void whenItemEDITToTheRegistry() {
 		Item item = new Item();
 		Tracker tracker = new Tracker();
 		tracker.add(item);
 		item.setName("water");
-		tracker.update(item);
+		tracker.edit(item);
 		Item result = tracker.findById(item.getId());
 		assertThat(result.getName(), is("water"));
 	}
 	
 	@Test
 	public void whenItemDELETEDToTheRegistry() {
-		Tracker tracker = new Tracker();
 		Item item = new Item();
+		Tracker tracker = new Tracker();
 		tracker.add(item);
-		tracker.delete(item);
-		Item expected = tracker.findById(item.getId());
-		Item result = null;
-		assertThat(result, is(expected));
+		tracker.delete(item.getId());
+		String result = null;
+		assertThat(result, is(tracker.findById(item.getId())));
 	}
 	
 	@Test
-	public void whenYouWantWotchingALLItems() {
-
+	public void whenYouWantSeeALLItems() {
+		Tracker tracker = new Tracker();
+		Item gaz = new Item();
+		Item light = new Item();
+		Item water = new Item();
+		Item[] item = {gaz, light, water};
+		tracker.add(gaz);
+		tracker.add(light);
+		tracker.add(water);
+		Item[] expected = tracker.getAll();
+		Item[] result = item;
+		assertThat(result, is(expected));
 	}
 	
 	@Test
@@ -55,7 +66,6 @@ public class TrackerTest {
 		tracker.add(gaz);
 		tracker.add(light);
 		tracker.add(water);
-		//Item[] item = new Item[] {new Item(), new Item(), new Item(), new Item()};
 		Item expected = tracker.findByName("light");
 		Item result = light;
 		assertThat(result, is(expected));

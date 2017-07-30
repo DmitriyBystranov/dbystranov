@@ -11,6 +11,8 @@ public class ConsoleInput implements InputInterface {
 
 	public int numberFunction() {
 		System.out.printf("\r\n%1$26s", "Select: ");
-		return scanner.nextInt();
+
+		return  //scanner.nextInt();
+				Integer.valueOf(scanner.nextLine());
 	}
 }

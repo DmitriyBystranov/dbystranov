@@ -17,7 +17,5 @@ public class Menu {
 		for(int i = 0; i < list.length; i++) {
 			System.out.printf("%26d%s%17s\r\n", i, ")", list[i]);
 		}
-
-        //System.out.printf("\r\n%1$26s\r\n", "Select: ");
 	}
 }

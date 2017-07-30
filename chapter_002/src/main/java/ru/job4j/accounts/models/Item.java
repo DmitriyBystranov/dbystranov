@@ -29,4 +29,11 @@ public class Item {
 	public String getDescription() {
 		return this.description;
 	}
+
+	@Override
+	public String toString() {
+		return "Name: " + name + "\r\n" +
+				"ID: " + id + "\r\n" +
+				"Description: " + description + "\r\n\r\n";
+	}
 }
