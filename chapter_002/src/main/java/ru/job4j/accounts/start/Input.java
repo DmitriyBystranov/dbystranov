@@ -1,6 +1,6 @@
 package ru.job4j.accounts.start;
 
-public interface InputInterface {
+public interface Input {
 	String ask(String question);
 	int numberFunction();
 }

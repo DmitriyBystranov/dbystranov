@@ -10,10 +10,10 @@ import ru.job4j.accounts.models.Item;
 public class StartUI {
 
 	private static boolean exit = true;
-	private static Menu menu = new Menu();
-	private static ConsoleInput input = new ConsoleInput();
-	private static Tracker tracker = new Tracker();
-	private static StartUI stUI = new StartUI();
+	private final Menu menu = new Menu();
+	private final Input input;
+	private final Tracker tracker;
+
 	private static final int ADD = 0;
 	private static final int ALL = 1;
 	private static final int EDIT = 2;
@@ -21,6 +21,12 @@ public class StartUI {
 	private static final int ID = 4;
 	private static final int NAME = 5;
 	private static final int EXIT = 6;
+
+	public StartUI(Input input, Tracker tracker) {
+		this.input = input;
+		this.tracker = tracker;
+	}
+
 	/**
 	 * Method addUI реализует метод add в пользовательском интерфейсе.
 	 */
@@ -66,9 +72,7 @@ public class StartUI {
 		System.out.println(tracker.findById(input.ask("Pleas, enter the item's ID: ")));
 	}
 
-
-	public static void main(String[] args) {
-
+	public void init() {
 		menu.setList("Add new Item");
 		menu.setList("Show all items");
 		menu.setList("Edit item");
@@ -83,27 +87,31 @@ public class StartUI {
 
 			switch(input.numberFunction()) {
 				case ADD :
-					stUI.addUI();
+					this.addUI();
 					break;
 				case ALL:
-					stUI.getAllUI();
+					this.getAllUI();
 					break;
 				case EDIT:
-					stUI.editUI();
+					this.editUI();
 					break;
 				case DELETE:
-					stUI.deleteUI();
+					this.deleteUI();
 					break;
 				case ID:
-					stUI.findByIdUI();
+					this.findByIdUI();
 					break;
 				case NAME:
-					stUI.findByNameUI();
+					this.findByNameUI();
 					break;
 				case EXIT:
 					exit = false;
 					break;
 			}
 		}
+	}
+
+	public static void main(String[] args) {
+		new StartUI(new ConsoleInput(), new Tracker()).init();
 	}
 }

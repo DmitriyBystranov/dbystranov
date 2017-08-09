@@ -1,6 +1,6 @@
 package ru.job4j.accounts.start;
 import java.util.Scanner;
-public class ConsoleInput implements InputInterface {
+public class ConsoleInput implements Input {
 
 	private Scanner scanner = new Scanner(System.in);
 
@@ -12,7 +12,7 @@ public class ConsoleInput implements InputInterface {
 	public int numberFunction() {
 		System.out.printf("\r\n%1$26s", "Select: ");
 
-		return  //scanner.nextInt();
+		return
 				Integer.valueOf(scanner.nextLine());
 	}
 }
