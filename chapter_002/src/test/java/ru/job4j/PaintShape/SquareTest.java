@@ -13,6 +13,6 @@ public class SquareTest {
     @Test
     public void buildSquare() {
         Square square = new Square();
-        assertEquals(square.pic(),"++++\r\n++++\r\n++++");
+        assertEquals(square.pic(),"++++\r\n++++\r\n++++\r\n");
     }
 }

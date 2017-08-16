@@ -12,7 +12,6 @@ public class ConsoleInput implements Input {
 	public int numberFunction() {
 		System.out.printf("\r\n%1$26s", "Select: ");
 
-		return
-				Integer.valueOf(scanner.nextLine());
+		return Integer.valueOf(scanner.nextLine());
 	}
 }
