@@ -19,7 +19,7 @@ public class StartUI {
 
 	public void init() {
 
-		Tracker tracker = new Tracker();
+		//Tracker tracker = new Tracker();
 		Menu menu = new Menu(this.input, tracker);
 		menu.fillActions();
 
