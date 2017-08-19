@@ -15,8 +15,7 @@ public class StabInput implements Input {
     }
 
     @Override
-    public int numberFunction() {
-        return Integer.valueOf(this.ask(null));
+    public int ask(String question, int[] range) {
+        return Integer.valueOf(this.ask(question));
     }
-
 }

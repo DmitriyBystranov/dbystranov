@@ -8,10 +8,24 @@ public class ConsoleInput implements Input {
 		System.out.print(question);
 		return scanner.nextLine();
 	}
-
-	public int numberFunction() {
-		System.out.printf("\r\n%1$26s", "Select: ");
-
-		return Integer.valueOf(scanner.nextLine());
+	/*
+	Для Handel Exception после метода нужно перечисли, какие ошибки он может вывести.
+	Для Run-time Exception такого делать не нужно.
+	 */
+	@Override
+	public int ask(String question, int[] range) {
+		int key = Integer.valueOf(this.ask(question));
+		boolean exist = false;
+		for(int value : range) {
+			if(value == key) {
+				exist = true;
+				break;
+			}
+		}
+		if(exist) {
+			return key;
+		} else {
+			throw new MenuOutException("Out of menu range.");
+		}
 	}
 }

@@ -32,7 +32,7 @@ public class Menu {
 
 	private Input input;
 	private Tracker tracker;
- 	private UserAction[] actions = new UserAction[7];
+ 	private UserAction[] actions = new UserAction[6];
 
 	public Menu(Input input, Tracker tracker) {
 		this.input = input;
@@ -40,7 +40,7 @@ public class Menu {
 	}
 
 	public void fillActions() {
-		this.actions[0] = new AddItem();
+		this.actions[0] = this.new AddItem();
 		this.actions[1] = new ShowItems();
 		this.actions[2] = new EditItem(tracker, input);
 		this.actions[3] = new DeleteItem(tracker, input);

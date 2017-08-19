@@ -9,6 +9,7 @@ import ru.job4j.accounts.models.Item;
  */
 public class StartUI {
 
+	private int[] range = {0, 1, 2, 3, 4, 5};
 	private Input input;
 	private Tracker tracker;
 
@@ -19,19 +20,17 @@ public class StartUI {
 
 	public void init() {
 
-		//Tracker tracker = new Tracker();
-		Menu menu = new Menu(this.input, tracker);
+		Menu menu = new Menu(this.input, this.tracker);
 		menu.fillActions();
 
 		do {
 			menu.show();
-			int key = Integer.valueOf(input.ask("\r\nSelect: "));
-			menu.select(key);
+			menu.select(input.ask("\r\nSelect: ", range));
 		} while (!"y".equals(this.input.ask("\r\nExit (y/n): ")));
 	}
 
 	public static void main(String[] args) {
-		Input input = new ConsoleInput();
+		Input input = new ValidateInput();
 		Tracker tracker = new Tracker();
 		new StartUI(input, tracker).init();
 	}
