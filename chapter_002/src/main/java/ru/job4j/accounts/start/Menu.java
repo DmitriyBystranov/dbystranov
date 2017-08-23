@@ -33,6 +33,7 @@ public class Menu {
 	private Input input;
 	private Tracker tracker;
  	private UserAction[] actions = new UserAction[6];
+ 	private int position = 0;
 
 	public Menu(Input input, Tracker tracker) {
 		this.input = input;
@@ -40,13 +41,14 @@ public class Menu {
 	}
 
 	public void fillActions() {
-		this.actions[0] = this.new AddItem();
-		this.actions[1] = new ShowItems();
-		this.actions[2] = new EditItem(tracker, input);
-		this.actions[3] = new DeleteItem(tracker, input);
-		this.actions[4] = new FindByID();
-		this.actions[5] = new FindByName();
+		this.actions[position++] = this.new AddItem("Add Item", 0);
+		this.actions[position++] = this.new ShowItems("Show all items", 1);
+		this.actions[position++] = new Menu.EditItem(tracker, input);
+		this.actions[position++] = new DeleteItem(tracker, input);
+		this.actions[position++] = this.new FindByID("Find items by ID", 4);
+		this.actions[position++] = this.new FindByName("Find items by name", 5);
 	}
+
 
 	public void select(int key) {
 		this.actions[key].execute();
@@ -60,7 +62,11 @@ public class Menu {
 		}
 	}
 
-	private class AddItem implements UserAction {
+	private class AddItem extends BaseAction {
+
+		AddItem(String name, int key) {
+			super(name, key);
+		}
 
 		@Override
 		public int key() {
@@ -73,14 +79,13 @@ public class Menu {
 			item.setName(input.ask("Pleas, enter the item's NAME: "));
 			item.setDescription(input.ask("Pleas, enter the item's DESCRIPTION: "));
 		}
-
-		@Override
-		public String info() {
-			return String.format("%s. %s", this.key(), "Add the new Item");
-		}
 	}
 
-	private class ShowItems implements UserAction {
+	private class ShowItems extends BaseAction {
+
+		public ShowItems(String name, int key) {
+			super(name, key);
+		}
 
 		@Override
 		public int key() {
@@ -118,6 +123,7 @@ public class Menu {
 
 		@Override
 		public void execute() {
+
 			Item item = tracker.findById(input.ask("Enter ID: "));
 			item.setName(input.ask("Pleas, enter the item's NAME: "));
 			item.setDescription(input.ask("Pleas, enter the item's DESCRIPTION: "));
@@ -130,7 +136,11 @@ public class Menu {
 		}
 	}
 
-	private class FindByID implements UserAction {
+	private class FindByID extends BaseAction {
+
+		public FindByID(String name, int key) {
+			super(name, key);
+		}
 
 		@Override
 		public int key() {
@@ -148,7 +158,11 @@ public class Menu {
 		}
 	}
 
-	private class FindByName implements UserAction {
+	private class FindByName extends BaseAction {
+
+		public FindByName(String name, int key) {
+			super(name, key);
+		}
 
 		@Override
 		public int key() {
