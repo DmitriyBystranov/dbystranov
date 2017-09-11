@@ -6,17 +6,12 @@ public class Board {
 	
 	public String filling() {
 
-		String str = new String();
-		char symbol = 0;
-
 		for(int i = 65; i <= 72; i++) {
 			for(int j = 1; j <= cell.length; j++) {
-				symbol = (char)i;
-				str = String.valueOf(symbol) + j;
-				cell[i][j] = str;
+				cell[i - 65][j - 1] = String.valueOf((char)i) + j;
 			}
 		}
 
-		return cell[4][3];
+		return cell[3][2];
 	}
 }
