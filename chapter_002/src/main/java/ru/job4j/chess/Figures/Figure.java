@@ -1,7 +1,7 @@
 package ru.job4j.chess.Figures;
 
 public abstract class Figure {
-	String coordinate;
-
+	private String coordinate;
+	private String name;
 	abstract void movementRules();
 }

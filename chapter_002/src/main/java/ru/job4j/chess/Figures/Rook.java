@@ -1,4 +1,8 @@
-package ru.job4j.chess;
+package ru.job4j.chess.Figures;
 
-public class Rook {
+public class Rook extends Figure {
+    @Override
+    void movementRules() {
+
+    }
 }
