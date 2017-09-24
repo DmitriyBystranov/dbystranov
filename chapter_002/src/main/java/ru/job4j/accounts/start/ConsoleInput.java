@@ -8,10 +8,7 @@ public class ConsoleInput implements Input {
 		System.out.print(question);
 		return scanner.nextLine();
 	}
-	/*
-	Для Handel Exception после метода нужно перечисли, какие ошибки он может вывести.
-	Для Run-time Exception такого делать не нужно.
-	 */
+
 	@Override
 	public int ask(String question, int[] range) {
 		int key = Integer.valueOf(this.ask(question));

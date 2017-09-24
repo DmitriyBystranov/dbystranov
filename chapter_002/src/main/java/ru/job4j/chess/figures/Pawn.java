@@ -1,6 +1,6 @@
-package ru.job4j.chess.Figures;
+package ru.job4j.chess.figures;
 
-public class Pawn extends Figure {
+public class Pawn {
     private String coordinate;
     private String name;
 
@@ -9,16 +9,15 @@ public class Pawn extends Figure {
         this.name = name;
     }
 
-    public void setCoordinate(String coordinate) {
+    public void setPosition(String coordinate) {
         this.coordinate = coordinate;
     }
 
-    public String getCoordinate() {
+    public String getPosition() {
         return this.coordinate;
     }
 
-    @Override
-    void movementRules() {
+    public void movementRules(String position, String oldPosition) {
 
     }
 }

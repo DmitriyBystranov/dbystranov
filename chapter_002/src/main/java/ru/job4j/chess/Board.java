@@ -4,6 +4,10 @@ public class Board {
 	
 	private String[][] cell = new String[8][8];
 
+	public Board() {
+		filling();
+	}
+
 	public String getCoordinate(int i, int j) {
 		return this.cell[i][j];
 	}
