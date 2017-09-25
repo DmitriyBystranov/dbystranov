@@ -1,6 +1,6 @@
 package ru.job4j.chess.figures;
 
-import ru.job4j.chess.exception.ImposibleMoveException;
+import ru.job4j.chess.exception.ImpossibleMoveException;
 
 public class King extends Figure {
 
@@ -9,7 +9,7 @@ public class King extends Figure {
     }
 
     @Override
-    void way() throws ImposibleMoveException {
+    void way() throws ImpossibleMoveException {
 
     }
 }

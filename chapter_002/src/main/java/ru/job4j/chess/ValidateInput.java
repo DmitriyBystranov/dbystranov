@@ -1,5 +1,13 @@
 package ru.job4j.chess;
 
-public class ValidateInput {
+import ru.job4j.chess.exception.*;
 
+public class ValidateInput extends ConsoleInput {
+    public String validateMove() {
+        try {
+
+        } catch (ImpossibleMoveException e) {
+
+        }
+    }
 }

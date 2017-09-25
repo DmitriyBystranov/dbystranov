@@ -1,6 +1,6 @@
 package ru.job4j.chess.figures;
 
-import ru.job4j.chess.exception.ImposibleMoveException;
+import ru.job4j.chess.exception.ImpossibleMoveException;
 
 public abstract class Figure {
 	private String position;
@@ -11,5 +11,5 @@ public abstract class Figure {
 		this.name = name;
 	}
 
-	abstract void way() throws ImposibleMoveException;
+	abstract void way() throws ImpossibleMoveException;
 }
