@@ -5,13 +5,5 @@ import org.junit.Test;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-public class PlayTest {
-    // Add Pawn Test
-
-
-    @Test
-    public void PawnTest() {
-        Play play = new Play();
-
-    }
-}
+public class PlayTest {}
+    // Add Pawn

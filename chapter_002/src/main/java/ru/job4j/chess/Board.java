@@ -11,10 +11,14 @@ public class Board {
 	public String getCoordinate(int i, int j) {
 		return this.cell[i][j];
 	}
-	
+
+	/**
+	 * Method filling Присваивает каждой клетке свою координату.
+	 */
+
 	public void filling() {
 
-		for(int i = 65; i <= 72; i++) {
+		for(int i = 'A'; i <= 'H'; i++) {
 			for(int j = 1; j <= cell.length; j++) {
 				cell[i - 65][j - 1] = String.valueOf((char)i) + j;
 			}

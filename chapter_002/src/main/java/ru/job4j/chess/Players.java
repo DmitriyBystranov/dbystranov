@@ -1,9 +1,0 @@
-package ru.job4j.chess;
-
-public class Players {
-    private String name;
-
-    public void setName(String name) {
-        this.name = name;
-    }
-}

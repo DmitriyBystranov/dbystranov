@@ -3,70 +3,60 @@ package ru.job4j.chess;
 import ru.job4j.chess.figures.*;
 
 public class Play {
-
+	private Figure[] figures = new Figure[16];
 	private Board board = new Board();
-	private Players player1 = new Players();
-	private Players player2 = new Players();
-	private Input input = new Input();
+	private ValidateInput input = new ValidateInput();
 
-	private Pawn pawn = new Pawn(board.getCoordinate(3, 1), "Pawn");
+	/**
+	 * Method placementFigures "Ставит фигуры на доску".
+	 */
+	public void placementFigures() {
+		for(int i = 0; i < 8; i++) {
+			figures[i] = new Pawn(board.getCoordinate(i,1), "Pawn");
+		}
+		figures[8] = new Rook(board.getCoordinate(0,0), "Rook");
+		figures[9] = new Knight(board.getCoordinate(1,0), "Knight");
+		figures[10] = new Bishop(board.getCoordinate(2,0), "Bishop");
+		figures[11] = new Queen(board.getCoordinate(3,0), "Queen");
+		figures[12] = new King(board.getCoordinate(4,0), "King");
+		figures[13] = new Bishop(board.getCoordinate(5,0), "Bishop");
+		figures[14] = new Knight(board.getCoordinate(6,0), "Knight");
+		figures[15] = new Rook(board.getCoordinate(7,0), "Rook");
+	}
 
-
+	/**
+	 * Method startGame Начало игры.
+	 */
 	public void startGame() {
 
-		/*player1.setName(input.inputMove("Name Player 1: "));
-		player2.setName(input.inputMove("Name Player 2: "));*/
+		placementFigures();
+
 		System.out.printf("\r\n%25s\r\n\r\n", "==START GAME==");
+		System.out.println("Example: D2 D4");
 
 	}
-
+	/**
+	 * Method game Игра.
+	 */
 	public void game() {
-		boolean mate = true;
-		int trueMove;
-		char[] move;
-		char[] moveOld = pawn.getPosition().toCharArray();
-		String coordinate = null;
-		while(mate) {
-			trueMove = 0;
-			pawn.setPosition(input.inputMove("Player 1: "));
-			move = pawn.getPosition().toCharArray();
+			//Проверка на корректность ввода
+			String[] coordinates = input.validateUsersCoordinate(input.ask("Enter way: "));
 
-			for(int i = 65; i <= 72; i++) {
-				for(int j = 1; j <= 8; j++) {
-					coordinate = String.valueOf((char)i) + j;
+			for(Figure figure : this.figures) {
 
-					if(coordinate.equals(board.getCoordinate(i - 65,j - 1))) {
-						System.out.println("Такая клетка существует.");
-						break;
-					} else if(i == 72 && j == 8) {
-						System.out.println("Такой клетки не существует.");
-						trueMove++;
-						break;
-					}
+				if(figure.getPosition().equals(coordinates[0]) &&
+						input.doNotAcrossFigures(coordinates, board, this.figures) &&
+						figure.way(coordinates[0], coordinates[1])) {
+					System.out.println("Move is made.");
+					System.out.println(figure.getName() + " [" + figure.getPosition() + "]");
+					game();
 				}
 			}
 
-			if(trueMove == 1) {
-				continue;
-			}
-
-			if(move[0] == moveOld[0] && move[1] > moveOld[1] && move[1] <= moveOld[1] + 2) {
-				pawn.setPosition(coordinate);
-				System.out.println("фигура сходила.");
-				if(move[1] == 56) {
-					mate = false;
-					System.out.println("End game.");
-				}
-			} else {
-				System.out.println("Так фигура не ходит.");
-			}
-
-
-
-			//System.out.println("Such cell do not exist. Please, moving again.");
-
-		}
+			System.out.println("INCORRECT MOVE !");
+			game();
 	}
+
 
 	public static void main(String[] args) {
 		Play play = new Play();
