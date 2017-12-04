@@ -10,5 +10,9 @@ public abstract class Figure {
         this.position = position;
     }
 
+    public int[] coordinates(Cell position) {
+        return int[] coordinates = position.getX(), position.getY;
+    }
+
     abstract Cell[][] way(Cell[] dist, Cell[] source) throws ImpossibleMoveException;
 }
