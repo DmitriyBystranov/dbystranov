@@ -9,6 +9,10 @@ public class Board {
 
     private Figure[] figures = new Figure[16];
 
+    public boolean emptyOrRich(Cell source, Cell dist) {
+
+    }
+
     public boolean move(Cell source, Cell dist) throws ImpossibleMoveException, OccupiedWayException, FigureNotFoundException {
         return true;
     }

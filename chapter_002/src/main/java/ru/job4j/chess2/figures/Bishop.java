@@ -10,15 +10,22 @@ public class Bishop extends Figure {
     }
 
 
+    @Override
+    public Figure copy(Cell dest) {
+        return new Bishop(dest);
+    }
 
     @Override
-    public Cell[][] way(Cell[] dest, Cell[] source) throws ImpossibleMoveException {
-        if(Math.abs(dest[0] - source[0]) ==
-                Math.abs(dest[1] - source[1])) {
-            setPosition(newPosition);
-            return true;
+    public Cell[] way(Cell dest, Cell source) throws ImpossibleMoveException {
+
+
+
+        if(Math.abs(dest.getX() - source.getX()) ==
+                Math.abs(dest.getY() - source.getY())) {
+            Cell[] coordinates = {dest, source};
+            return coordinates;
         } else {
-            return false;
+            throw new ImpossibleMoveException("The figure does not go."); // Создаётся объект.
         }
     }
 }
