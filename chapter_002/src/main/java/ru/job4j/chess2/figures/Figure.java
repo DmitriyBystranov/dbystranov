@@ -14,5 +14,6 @@ public abstract class Figure {
     public abstract Figure copy(Cell dest);
 
 
-    //abstract Cell[][] way(Cell[] dist, Cell[] source) throws ImpossibleMoveException;
+
+    public abstract Cell[] way(Cell dest, Cell source) throws ImpossibleMoveException;
 }
