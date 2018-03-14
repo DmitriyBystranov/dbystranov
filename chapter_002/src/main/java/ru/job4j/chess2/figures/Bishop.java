@@ -22,15 +22,7 @@ public class Bishop extends Figure {
 
         if(Math.abs(dest.getX() - source.getX()) ==
                 Math.abs(dest.getY() - source.getY())) {
-            int i = 0;
-            int j = 0;
-            if(dest.getX() > source.getX()) {
-                i = source.getX();
-            } else {
-                i = dest.getX();
-            }
 
-            if(d)
         } else {
             throw new ImpossibleMoveException("The figure does not go."); // Создаётся объект.
         }
