@@ -30,7 +30,7 @@ public class CalculatorTest {
 	/**
 		Test add.
 	*/
-
+    @Test
 	public void whenAddOneMinusOneThenTwo() {
         Calculator calc = new Calculator();
         calc.minus(5D, 1D);
@@ -42,7 +42,7 @@ public class CalculatorTest {
 	/**
 		Test add.
 	*/
-
+    @Test
 	public void whenAddOneMultiplyOneThenTwo() {
         Calculator calc = new Calculator();
         calc.multiply(3D, 2D);
@@ -54,7 +54,7 @@ public class CalculatorTest {
 	/**
 		Test add.
 	*/
-
+    @Test
 	public void whenAddOneSharingOneThenTwo() {
         Calculator calc = new Calculator();
         calc.sharing(6D, 4D);

@@ -1,3 +1,4 @@
+/*
 package ru.job4j.chess2.figures;
 
 import ru.job4j.chess2.Cell;
@@ -28,3 +29,4 @@ public class Bishop extends Figure {
         }
     }
 }
+*/
